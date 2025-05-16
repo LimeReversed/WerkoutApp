@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import eu.limereversed.werkout.ui.theme.DarkPurple
 import eu.limereversed.werkout.ui.theme.WerkoutTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,7 +28,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WerkoutTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(), topBar = {TopAppBar({Text("123456")})}) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
+                    TopAppBar(
+                        title={Text("ABC", color=Color.White)},
+                        colors = TopAppBarDefaults.topAppBarColors(DarkPurple, Color.White))
+                }) { innerPadding ->
                     WerkoutApp(innerPadding)
                 }
             }
