@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    // Add this for the kapt under "Room" to work. Don't forget to sync
+    id("kotlin-kapt")
 }
 
 android {
@@ -56,4 +59,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Add to made ViewModel work
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$2.8.7")
+
+    val room = "2.6.0"
+
+    // Room needed for database to work
+    implementation("androidx.room:room-runtime:$room")
+    implementation("androidx.room:room-ktx:$room")
+    kapt("androidx.room:room-compiler:$room")
 }
