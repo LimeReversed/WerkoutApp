@@ -10,6 +10,11 @@ data class ExerciseData(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
 
+    @ColumnInfo(name="exercise_id")
+    // FIX If -1 it's a new one?
+    // How to autogenerate
+    var exerciseId : Long = -1L,
+
     @ColumnInfo(name="name")
     var name : String = "",
 
