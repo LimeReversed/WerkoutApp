@@ -44,7 +44,7 @@ import eu.limereversed.werkout.viewmodels.ExerciseScreenVM
 @Composable
 fun WerkoutApp(innerPadding: PaddingValues) {
     val exerciseScreenVM: ExerciseScreenVM = viewModel()
-//    exerciseScreenVM.createProgram(exerciseScreenVM.program1)
+    exerciseScreenVM.createProgram(exerciseScreenVM.program1)
 }
 
 //@Composable
