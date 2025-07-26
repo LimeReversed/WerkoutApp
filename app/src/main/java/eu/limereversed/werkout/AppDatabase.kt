@@ -1,4 +1,4 @@
-package eu.limereversed.easy_storage_example
+package eu.limereversed.werkout
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

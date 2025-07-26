@@ -32,7 +32,7 @@ interface ExercisePackDao {
     fun getByProgramId(programId: Long): Flow<List<ExercisePackData>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun add(): Long
+    suspend fun add(exerciseData: ExerciseData = ExerciseData()): Long
 
     @Update
     suspend fun update(exercisePackData: ExercisePackData)

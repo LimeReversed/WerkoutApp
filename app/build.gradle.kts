@@ -51,7 +51,8 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation("androidx.compose.material3:material3:1.3.2")
+    implementation("androidx.compose.material3:material3-window-size-class:1.3.2")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -61,12 +62,23 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Add to made ViewModel work
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+    val lifecycle_version = "2.9.2"
 
-    val room = "2.6.0"
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+    val room = "2.7.2"
 
     // Room needed for database to work
     implementation("androidx.room:room-runtime:$room")
     implementation("androidx.room:room-ktx:$room")
     kapt("androidx.room:room-compiler:$room")
+
+//    val activity_version = "1.10.1"
+//    implementation("androidx.activity:activity-ktx:$activity_version")
+
+    val core_version = "1.16.0"
+    implementation("androidx.core:core-ktx:$core_version")
 }

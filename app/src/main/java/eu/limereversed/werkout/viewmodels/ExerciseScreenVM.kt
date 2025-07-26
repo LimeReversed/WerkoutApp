@@ -2,7 +2,7 @@ package eu.limereversed.werkout.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import eu.limereversed.easy_storage_example.Graph
+import eu.limereversed.werkout.Graph
 import eu.limereversed.werkout.classes.Description
 import eu.limereversed.werkout.classes.Exercise
 import eu.limereversed.werkout.classes.ExercisePack
