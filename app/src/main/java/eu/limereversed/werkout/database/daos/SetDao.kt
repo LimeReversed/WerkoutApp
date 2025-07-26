@@ -23,8 +23,11 @@ interface SetDao {
     @Query("Select * from `set_table` where id in (:ids)")
     fun getByIds(ids: List<Long>): Flow<List<SetData>>
 
+    @Query("Select * from `set_table` join `set_x_exercise_table` as `exercise` on exercise.set_id = set_table.id  where exercise.exercise_id=:exerciseId")
+    fun getByExerciseId(exerciseId: Long): Flow<List<SetData>>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun add(setData: SetData)
+    suspend fun add(setData: SetData): Long
 
     @Update
     suspend fun update(setData: SetData)

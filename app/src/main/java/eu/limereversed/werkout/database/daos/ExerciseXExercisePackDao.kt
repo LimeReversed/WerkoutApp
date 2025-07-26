@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import eu.limereversed.werkout.database.entities.ExercisePackXProgram
 import eu.limereversed.werkout.database.entities.ExerciseXExercisePack
 import kotlinx.coroutines.flow.Flow
 
@@ -18,7 +19,7 @@ interface ExerciseXExercisePackDao {
     * so Exercise should go first.
     */
     @Query("Select * from `exercise_x_exercise_pack_table` where exercise_pack_id=:exercisePackId")
-    fun getByExercisePackId(exercisePackId: Long): Flow<ExerciseXExercisePack>
+    fun getByExercisePackId(exercisePackId: Long): Flow<List<ExerciseXExercisePack>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun add(crossRef: ExerciseXExercisePack)

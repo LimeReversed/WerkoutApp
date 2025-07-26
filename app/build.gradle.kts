@@ -61,7 +61,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Add to made ViewModel work
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 
     val room = "2.6.0"
 

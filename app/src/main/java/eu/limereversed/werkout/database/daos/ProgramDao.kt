@@ -22,7 +22,7 @@ interface ProgramDao {
     fun getByIds(ids: List<Long>): Flow<List<ProgramData>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun add(programData: ProgramData)
+    suspend fun add(programData: ProgramData): Long
 
     @Update
     suspend fun update(programData: ProgramData)

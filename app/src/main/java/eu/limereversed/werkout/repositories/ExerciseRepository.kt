@@ -13,8 +13,10 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao, private val exerc
 
     fun getByIds(ids: List<Long>): Flow<List<ExerciseData>> = exerciseDao.getByIds(ids)
 
-    suspend fun add(exerciseData: ExerciseData){
-        exerciseDao.add(exerciseData)
+    fun getByExercisePackId(exercisePackId: Long): Flow<List<ExerciseData>> = exerciseDao.getByExercisePackId(exercisePackId)
+
+    suspend fun add(exerciseData: ExerciseData): Long {
+        return exerciseDao.add(exerciseData)
     }
 
     suspend fun update(exerciseData: ExerciseData) {

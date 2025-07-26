@@ -12,8 +12,8 @@ class ProgramRepository(private val programDao: ProgramDao) {
 
     fun getByIds(ids: List<Long>): Flow<List<ProgramData>> = programDao.getByIds(ids)
 
-    suspend fun add(programData: ProgramData){
-        programDao.add(programData)
+    suspend fun add(programData: ProgramData): Long {
+        return programDao.add(programData)
     }
 
     suspend fun update(programData: ProgramData) {

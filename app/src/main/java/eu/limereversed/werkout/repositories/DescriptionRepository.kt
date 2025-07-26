@@ -13,8 +13,8 @@ class DescriptionRepository(private val descriptionDao: DescriptionDao, private 
 
     fun getByIds(ids: List<Long>): Flow<List<DescriptionData>> = descriptionDao.getByIds(ids)
 
-    suspend fun add(descriptionData: DescriptionData){
-        descriptionDao.add(descriptionData)
+    suspend fun add(descriptionData: DescriptionData): Long {
+        return descriptionDao.add(descriptionData)
     }
 
     suspend fun update(descriptionData: DescriptionData) {
@@ -25,11 +25,11 @@ class DescriptionRepository(private val descriptionDao: DescriptionDao, private 
         descriptionDao.delete(descriptionData)
     }
 
-    suspend fun assignToExercisePack(descriptionId: Long, exerciseId: Long) {
+    suspend fun assignToExercise(descriptionId: Long, exerciseId: Long) {
         descriptionXExerciseDao.add(DescriptionXExercise(descriptionId, exerciseId))
     }
 
-    suspend fun unassignFromExercisePack(descriptionId: Long, exerciseId: Long) {
+    suspend fun unassignFromExercise(descriptionId: Long, exerciseId: Long) {
         descriptionXExerciseDao.delete(DescriptionXExercise(descriptionId, exerciseId))
     }
 }

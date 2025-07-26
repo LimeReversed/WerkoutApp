@@ -24,8 +24,11 @@ interface SetPartDao {
     @Query("Select * from `set_part_table` where id in (:ids)")
     fun getByIds(ids: List<Long>): Flow<List<SetPartData>>
 
+    @Query("Select * from `set_part_table` join `set_part_x_set_table` on set_part_table.id = set_part_x_set_table.set_part_id  where set_part_x_set_table.set_id = :setId")
+    fun getBySetId(setId: Long): Flow<List<SetPartData>>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun add(setPartData: SetPartData)
+    suspend fun add(setPartData: SetPartData): Long
 
     @Update
     suspend fun update(setPartData: SetPartData)

@@ -7,10 +7,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import eu.limereversed.werkout.database.entities.DescriptionData
-import eu.limereversed.werkout.database.entities.ExerciseData
-import eu.limereversed.werkout.database.entities.ProgramData
-import eu.limereversed.werkout.database.entities.SetData
-import eu.limereversed.werkout.database.entities.SetPartData
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -26,7 +22,7 @@ interface DescriptionDao {
     fun getByIds(ids: List<Long>): Flow<List<DescriptionData>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun add(descriptionData: DescriptionData)
+    suspend fun add(descriptionData: DescriptionData): Long
 
     @Update
     suspend fun update(descriptionData: DescriptionData)

@@ -29,5 +29,5 @@ data class SetPartData(
     var oneRM : Float = -1f,
 
     @ColumnInfo(name="%_of_one_rm")
-    var procentOfOneRM : Int = -1,
+    var percentOfOneRM : Int = -1,
 )

@@ -14,8 +14,10 @@ class SetRepository(private val setDao: SetDao, private val setXExerciseDao: Set
 
     fun getByIds(ids: List<Long>): Flow<List<SetData>> = setDao.getByIds(ids)
 
-    suspend fun add(setData: SetData){
-        setDao.add(setData)
+    fun getByExerciseId(exerciseId: Long): Flow<List<SetData>> = setDao.getByExerciseId((exerciseId))
+
+    suspend fun add(setData: SetData): Long {
+        return setDao.add(setData)
     }
 
     suspend fun update(setData: SetData) {

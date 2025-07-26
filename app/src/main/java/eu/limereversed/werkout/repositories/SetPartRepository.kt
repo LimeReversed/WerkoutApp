@@ -15,8 +15,10 @@ class SetPartRepository(private val setPartDao: SetPartDao, private val setPartX
 
     fun getByIds(ids: List<Long>): Flow<List<SetPartData>> = setPartDao.getByIds(ids)
 
-    suspend fun add(setPartData: SetPartData){
-        setPartDao.add(setPartData)
+    fun getBySetId(setId: Long): Flow<List<SetPartData>> = setPartDao.getBySetId(setId)
+
+    suspend fun add(setPartData: SetPartData): Long {
+        return setPartDao.add(setPartData)
     }
 
     suspend fun update(setPartData: SetPartData) {
